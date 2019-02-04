@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<script>
+		//1. декларация
+		function showMessage(text, n){
+			if( typeof text !== 'string' ){
+				//window.alert('Invalid parameter text:' + text)
+				console.log('Invalid parameter text:' + text);
+				text = 'default message';
+			}
+
+			if( typeof n !== 'number' || !(n >= 1 && n <= 6) ){
+				//window.alert('Invalid parameter n:' + n)
+				console.warn('Invalid parameter n:' + n);
+				n = 3
+			}
+			document.write('<h' + n + '>' + text + '</h' + n + '>');
+		}
+
+		var msg;
+		//2.извикване
+		showMessage('Успешен вход в приложението', 3);
+		showMessage( msg, 4);
+		showMessage('Проверете въведените!', 15);
+	</script>
+</head>
+<body>
+
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio iste totam itaque, veritatis facilis consectetur obcaecati explicabo quod. Eveniet perspiciatis nemo aspernatur harum, similique nulla corrupti, maxime est cumque! Amet.
+	</p>
+	<noscript>
+		Моля, разрешете изпълнението на JS!...
+	</noscript>
+</body>
+</html>
