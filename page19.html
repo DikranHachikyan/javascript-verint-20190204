@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<style>
+		ul#gallery li+li {
+		    display: none;
+		}
+
+		ul#gallery {
+		    list-style: none;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="view">
+		<h2>Title</h2>
+		<a href="#" title="">
+			<img src="./pics-large/chch-city-attractions320x240.png" alt="">
+		</a>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam alias natus perferendis excepturi est accusamus aliquam, expedita, culpa magni modi aperiam, fugiat libero cum laudantium! Dicta recusandae, dolor est quaerat.</p>
+	</div>
+	<button id="show">Show</button>
+
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script>
+		//Local JS
+		$(document).ready(function(){
+			var item = {
+                      "url": "http://www.teara.govt.nz/en/video/44471/neil-dawsons-chalice-cathedral-square-christchurch",
+                      "src": "chch-millennium-monument320x240.png",
+                      "thumbnail": "chch-millennium-monument72x56.png",
+                      "title": "Millennium Monument",
+                      "alt": "Millennium Monument",
+                      "shortinfo": "Neil Dawson's magnificent Chalice sculpture is located in Christchurch's Cathedral Square.Chalice celebrates the new millennium and the 150th Anniversary of the founding of Christchurch",
+                      "info": "Neil Dawson's magnificent Chalice sculpture is located in Christchurch's Cathedral Square.Chalice celebrates the new millennium and the 150th Anniversary of the founding of Christchurch and Canterbury by the Canterbury Association. Chalice is a permanent sculpture with a primary hexagonal steel structure and a solid steel conical base. 18 metres high, 2 metres in diameter at ground level and 8.5 metres in diameter at the top, its shape mirrors the spire of Christchurch Cathedral."
+               }
+               , path = './pics-large/';
+
+               $('#show').click(function(){
+               		var view  = $('#view');
+
+               		view.find('h2').html(item.title);
+               		view.find('a').attr({
+               			  'href' : item.url
+               			, 'title': item.title 
+               		});
+
+               		view.find('img').attr({
+               			  'src': path + item.src
+               			, 'alt': item.alt
+               		});
+
+               		view.find('p').html(item.shortinfo);
+               });
+		});//on document ready
+
+	</script>
+</body>
+</html>

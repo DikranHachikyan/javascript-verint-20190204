@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<style>
+		ul#gallery li+li {
+		    display: none;
+		}
+
+		ul#gallery {
+		    list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="gallery">
+		<li><img src="./pics-large/pic1-320x240.jpg" ></li>
+		<li><img src="./pics-large/pic2-320x240.jpg" ></li>
+		<li><img src="./pics-large/pic3-320x240.jpg" ></li>
+		<li><img src="./pics-large/pic4-320x240.jpg" ></li>
+		<li><img src="./pics-large/pic5-320x240.jpg" ></li>
+	</ul>
+
+	<div>
+		<button id="prv"><<</button>
+		<input type="button" id="slide" value="Auto" >
+		<button id="nxt">>></button>
+	</div>
+	
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script>
+		//Local JS
+		$(document).ready(function(){
+			var  intervalId = 0
+			   , buttonLabel = '';
+
+			$('#nxt').click(function(){
+				showNext('#gallery li:first-child', $('#gallery'));
+			});//on click next
+
+			$('#prv').click(function(){
+				$('#gallery li:last-child').prependTo($('#gallery'));
+			});//on prev click
+
+			$('#slide').click(function(){
+				if (intervalId){ //stop auto
+					clearInterval(intervalId);
+					intervalId = 0 ; //!!!
+					buttonLabel = 'Auto';
+				}
+				else{ //start auto
+					intervalId = setInterval(function(){
+								showNext('#gallery li:first-child',$('#gallery'))
+							}, 2000);
+					buttonLabel = 'Stop';
+				}
+				
+				$(this).val(buttonLabel);
+				console.log('interval id:', intervalId);
+			});//on click slide
+		});//on document ready
+
+		function showNext(selector, selectorTo){
+			$(selector).appendTo(selectorTo);
+		}
+
+	</script>
+</body>
+</html>

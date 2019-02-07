@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<script>
+		
+	</script>
+	<style>
+		ul {
+		    list-style: none;
+		}
+
+		li a {
+		    text-decoration: none;
+		}
+		li img {
+			margin-right:7px;
+			margin-left:7px;
+		}
+	</style>
+</head>
+<body>
+	<h1></h1>
+	<h2></h2>
+	<ul>
+		<li><a href="http://no.com/jquery-tutorial.mp4">jQuery Tutorial</a></li>
+		<li><a href="http://no.com/audio-book.mp3">Book</a></li>
+		<li><a href="http://no.com/cv.doc">CV</a></li>
+		<li><a href="http://no.com/report.pdf">Report 2018</a></li>
+	</ul>
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script>
+		//Local JS
+		$(document).ready(function(){
+			$('li a[href$="mp4"]')
+				.after('<img src="./images/video-x-generic.png" />');
+			$('li a[href$="mp3"]')
+				.before('<img src="./images/audio-x-generic.png" />');
+			$('li a[href$="doc"]')
+				.prepend('<img src="./images/x-office-document.png" />');
+			$('li a[href$="pdf"]')
+				.append('<img src="./images/package-x-generic.png"/>')
+				.prepend('Business ');
+
+			$('h1').html('Resource <em>Files</em>');
+			$('h2').text('Useful <em>Links</em>');
+
+			console.log('html:',$('h1').html());	
+			console.log('text:',$('h1').text());	
+		});
+	</script>
+</body>
+</html>

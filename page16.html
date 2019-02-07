@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<style>
+
+		ul#gallery {
+		    list-style: none;
+		}
+
+		ul#gallery li {
+		    display: inline-block;
+		    margin: 0 0 10px 10px;
+		    cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="view">
+		<img src="./pics-large/pic1-320x240.jpg" alt="">
+	</div>
+	<ul id="gallery">
+		<li><img src="./pics-small/pic1.jpg" data-large-image="pic1-320x240.jpg"></li>
+		<li><img src="./pics-small/pic2.jpg" data-large-image="pic2-320x240.jpg"></li>
+		<li><img src="./pics-small/pic3.jpg" data-large-image="pic3-320x240.jpg"></li>
+		<li><img src="./pics-small/pic4.jpg" data-large-image="pic4-320x240.jpg"></li>
+		<li><img src="./pics-small/pic5.jpg" data-large-image="pic5-320x240.jpg"></li>
+	</ul>
+
+	
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script>
+		//Local JS
+		var counter = 1; //глобална - вижда се навсякъде
+
+		$(document).ready(function(){
+			//локални за ready
+			var   path = './pics-large/'
+			    , defaultImage = path + 'pic1-320x240.jpg';
+
+			$('#gallery li img')
+				.mouseover(function(){
+					var largeImage = $(this).data('large-image');
+
+					$('#view img').attr('src', path + largeImage );
+				})//on mouse over
+				.mouseout(function(){
+					$('#view img').attr('src', defaultImage );
+				});//on mouse out    
+		});//on document ready
+	</script>
+</body>
+</html>

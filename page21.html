@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<style>
+		#a{
+			width:200px;
+			height:200px;
+			border:1px solid red;
+		}
+		#b{
+			width:200px;
+			height:200px;
+			border:1px solid green;
+		}
+		#c{
+			width:200px;
+			height:200px;
+			border:1px solid blue;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div id="a">
+		A
+		<div id="b">
+			B
+			<div id="c">
+				C
+				<button id="b1">Button 1</button>
+				<a href="http://dir.bg" id="l">Dir</a>
+			</div>
+		</div>
+	</div>
+	
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script>
+		//Local JS
+		$(document).ready(function(){
+			$('#b1').click(function(evt){
+				console.log('Event Object:', evt);
+				evt.stopPropagation();
+			});
+
+			$('#a').click(function(evt){
+				//evt.currentTarget.innerHTML = "Me!";
+				console.log('div id a:',evt);
+			});
+			$('#b').click(function(evt){
+				console.log('div id b:',evt);
+			});
+
+			$('#l').click(function(evt){
+				console.log('link...');
+				evt.preventDefault();
+			});
+		});
+	</script>
+</body>
+</html>

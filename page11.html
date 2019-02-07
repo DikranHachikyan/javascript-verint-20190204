@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<script>
+		
+	</script>
+</head>
+<body>
+	<h1 id="title">Lorem ipsum dolor sit</h1>
+	<p class="text">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio iste totam itaque, veritatis facilis consectetur obcaecati explicabo quod. Eveniet perspiciatis nemo aspernatur harum, similique nulla corrupti, maxime est cumque! Amet.
+	</p>
+	<p>Lorem ipsum dolor sit amet, <a href="#" title="consectetur">consectetur</a> adipisicing elit. Aliquid optio vel sint, beatae placeat distinctio exercitationem qui, obcaecati quod omnis expedita explicabo, quam neque, fugiat numquam eius officia. Laboriosam, deleniti!
+	</p>
+	<div class="container">
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laborum expedita pariatur blanditiis libero! Incidunt totam, et quae animi inventore voluptas aspernatur perferendis voluptatum? Ut vero veniam, sunt sed dignissimos.</div>
+		<div class="text">Quo ullam excepturi aut eius maiores consequuntur, quisquam, quidem dolorem! Ad <a href="#">officiis alias</a> neque, quibusdam magni. Est delectus, magni, commodi, molestiae praesentium saepe quam debitis perferendis minima sunt aut porro!</div>
+		<div>Repellat quibusdam vero nisi, dicta ad quod nulla. Quo harum, nulla velit rem, voluptatum repellendus culpa earum incidunt officia, iusto hic quaerat placeat ex saepe minus voluptatem, at ipsa laudantium.</div>
+	</div>
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script>
+		//Local JS
+		$(document).ready(function(){
+			$('p').css('background-color','#ccc');
+			$('.text').css('border','1px solid red');
+			$('p.text').css('border','1px solid blue');
+			$('#title').css('font-family','monospace');
+			$('a[title]').css('text-decoration','none');
+		});
+	</script>
+</body>
+</html>

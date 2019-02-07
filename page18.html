@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<style>
+		ul#gallery li+li {
+		    display: none;
+		}
+
+		ul#gallery {
+		    list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<a href="#">
+			<img src="./pics-large/pic1-320x240.jpg" alt="" id="banner">
+		</a>
+	</div>
+	
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script>
+		//Local JS
+		$(document).ready(function(){
+			var images = [
+				  'pic1-320x240.jpg'
+				, 'pic2-320x240.jpg'
+				, 'pic3-320x240.jpg'
+				, 'pic4-320x240.jpg'
+				, 'pic5-320x240.jpg'
+			]
+			, path = './pics-large/'
+			, currentImageIndex = 0;
+
+			setInterval(function(){
+				currentImageIndex++;
+
+				if( currentImageIndex >= images.length){
+					currentImageIndex = 0;
+				}
+
+				$('#banner').attr('src', path + images[currentImageIndex]);
+			}, 2000);
+		});//on document ready
+
+	</script>
+</body>
+</html>

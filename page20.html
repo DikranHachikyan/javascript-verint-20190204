@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page</title>
+	<style>
+		ul#gallery li+li {
+		    display: none;
+		}
+
+		ul#gallery {
+		    list-style: none;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="view">
+		<h2>Millennium Monument</h2>
+		<a href="#" title="">
+			<img src="./pics-large/chch-city-attractions320x240.png" alt="">
+		</a>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam alias natus perferendis excepturi est accusamus aliquam, expedita, culpa magni modi aperiam, fugiat libero cum laudantium! Dicta recusandae, dolor est quaerat.</p>
+	</div>
+	<div>
+	<button id="prv"><<</button>
+	<button id="nxt">>></button>
+		
+	</div>
+	
+	<script src="./js/images.js"></script>
+	<script src="./js/jquery-3.3.1.js"></script>
+	<script>
+		//Local JS
+		$(document).ready(function(){
+			var path = './pics-large/'
+			  , index = 0
+              , view  = $('#view');
+              
+           showItem(view, images[index], path);
+              
+           $('#nxt').click(function(){
+           		index++;
+
+           		if( index >= images.length ){
+           			index = 0;
+           		}
+
+           		showItem(view, images[index], path);
+            });
+
+           $('#prv').click(function(){
+           		index--;
+
+           		if( index < 0){
+           			index = images.length -1;
+           		}
+
+           		showItem(view, images[index], path);
+           });
+		});//on document ready
+		function showItem( gallery, item, path){
+       		gallery.find('h2').html(item.title);
+       		gallery.find('a').attr({
+       			  'href' : item.url
+       			, 'title': item.title 
+       		});
+
+       		gallery.find('img').attr({
+       			  'src': path + item.src
+       			, 'alt': item.alt
+       		});
+
+       		gallery.find('p').html(item.shortinfo);
+			
+		}
+	</script>
+</body>
+</html>
